@@ -1,42 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hurtado/inicio.dart';
+import 'package:hurtado/paginatab.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
-    );
-  }
+void main() {
+  runApp(MaterialApp(
+    title: 'Named Routes Demo',
+    debugShowCheckedModeBanner: false,
+    // Inicie la aplicación con la ruta con nombre. En nuestro caso, la aplicación comenzará
+    // en el Widget FirstScreen
+    initialRoute: '/',
+    routes: {
+      // Cuando naveguemos hacia la ruta "/", crearemos el Widget FirstScreen
+      '/': (context) => const Inicio(),
+      // Cuando naveguemos hacia la ruta "/second", crearemos el Widget SecondScreen
+      '/2': (context) => const Pagina2(),
+    },
+  ));
 }
